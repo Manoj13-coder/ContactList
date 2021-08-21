@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            <% title %>
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <h1><i class="fa fa-address-book"></i> &nbsp;Contact List</h1>
+        <div>
+            <ul>
+                <% for(let i of contacts) { %>
+                    <li>
+                        <p class="name"> <%= i.name %> </p>
+                        <p class="phone"> <%= i.phone %> </p>
+                        <a class="fa fa-trash" href="/delete/?phone=<%= i.phone %>"></a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+        <form action="/create" method="POST">
+            <input placeholder="Name" name="Name" required type="text">
+            <input placeholder="Number" name="Number" required type="number">
+            <button type="sumbit">Add Contact</button>
+        </form>
+    </body>
+</html>
